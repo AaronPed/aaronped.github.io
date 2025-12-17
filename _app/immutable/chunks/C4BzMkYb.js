@@ -1,0 +1,1 @@
+import{a as u,w as o,W as _,h as t,y as g,F as p,T as i,D as l,x as d,e as m}from"./D-MousY3.js";function E(n,r){let s=null,y=t;var a;if(t){s=m;for(var e=g(document.head);e!==null&&(e.nodeType!==p||e.data!==n);)e=i(e);if(e===null)l(!1);else{var f=i(e);e.remove(),d(f)}}t||(a=document.head.appendChild(u()));try{o(()=>r(a),_)}finally{y&&(l(!0),d(s))}}export{E as h};
