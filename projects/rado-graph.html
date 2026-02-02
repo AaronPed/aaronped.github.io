@@ -1,46 +1,61 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		<link href="../_app/immutable/assets/0.B6kGYNV2.css" rel="stylesheet">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        const theme =
+          stored === "light" || stored === "dark"
+            ? stored
+            : prefersDark
+              ? "dark"
+              : "light";
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    
+		<link href="../_app/immutable/assets/0.PRcDW_11.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/9.DMRdq57i.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/entry/start.CpAQfvsx.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/Cu6bgXr2.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.BLyUI5RG.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/CiE1HMtr.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/D-MousY3.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/BUApaBEI.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/DPV4Hcwj.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.rVradNCB.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.iXanV09w.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/CwDrDYTj.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/CxIDBp6I.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/DRudpjA4.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/Ch8EDPVd.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/0.D3bI8AUP.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.D51CJAPg.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/C4BzMkYb.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/DrY8Ilyb.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/9.B88e06aw.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/CS6DDQMG.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/CY8AB-us.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/9.D_gvo9C_.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/4LSGJv5n.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/CBbuBPfZ.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/C_Njmxhn.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/BQs9fFl7.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/CU9W_vW1.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/BLLkLrlF.js"><!--12qhfyh--><link rel="icon" href="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='107'%20height='128'%20viewBox='0%200%20107%20128'%3e%3ctitle%3esvelte-logo%3c/title%3e%3cpath%20d='M94.157%2022.819c-10.4-14.885-30.94-19.297-45.792-9.835L22.282%2029.608A29.92%2029.92%200%200%200%208.764%2049.65a31.5%2031.5%200%200%200%203.108%2020.231%2030%2030%200%200%200-4.477%2011.183%2031.9%2031.9%200%200%200%205.448%2024.116c10.402%2014.887%2030.942%2019.297%2045.791%209.835l26.083-16.624A29.92%2029.92%200%200%200%2098.235%2078.35a31.53%2031.53%200%200%200-3.105-20.232%2030%2030%200%200%200%204.474-11.182%2031.88%2031.88%200%200%200-5.447-24.116'%20style='fill:%23ff3e00'/%3e%3cpath%20d='M45.817%20106.582a20.72%2020.72%200%200%201-22.237-8.243%2019.17%2019.17%200%200%201-3.277-14.503%2018%2018%200%200%201%20.624-2.435l.49-1.498%201.337.981a33.6%2033.6%200%200%200%2010.203%205.098l.97.294-.09.968a5.85%205.85%200%200%200%201.052%203.878%206.24%206.24%200%200%200%206.695%202.485%205.8%205.8%200%200%200%201.603-.704L69.27%2076.28a5.43%205.43%200%200%200%202.45-3.631%205.8%205.8%200%200%200-.987-4.371%206.24%206.24%200%200%200-6.698-2.487%205.7%205.7%200%200%200-1.6.704l-9.953%206.345a19%2019%200%200%201-5.296%202.326%2020.72%2020.72%200%200%201-22.237-8.243%2019.17%2019.17%200%200%201-3.277-14.502%2017.99%2017.99%200%200%201%208.13-12.052l26.081-16.623a19%2019%200%200%201%205.3-2.329%2020.72%2020.72%200%200%201%2022.237%208.243%2019.17%2019.17%200%200%201%203.277%2014.503%2018%2018%200%200%201-.624%202.435l-.49%201.498-1.337-.98a33.6%2033.6%200%200%200-10.203-5.1l-.97-.294.09-.968a5.86%205.86%200%200%200-1.052-3.878%206.24%206.24%200%200%200-6.696-2.485%205.8%205.8%200%200%200-1.602.704L37.73%2051.72a5.42%205.42%200%200%200-2.449%203.63%205.79%205.79%200%200%200%20.986%204.372%206.24%206.24%200%200%200%206.698%202.486%205.8%205.8%200%200%200%201.602-.704l9.952-6.342a19%2019%200%200%201%205.295-2.328%2020.72%2020.72%200%200%201%2022.237%208.242%2019.17%2019.17%200%200%201%203.277%2014.503%2018%2018%200%200%201-8.13%2012.053l-26.081%2016.622a19%2019%200%200%201-5.3%202.328'%20style='fill:%23fff'/%3e%3c/svg%3e"/><!----><!--gygcht--><meta name="description" content="I got sucked down a Youtube rabbit hole about Rado graphs by Matt Parker and wanted a little project to play with typescript on my personal page."/><!----><title>Rado Graph — aaron</title>
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents"><!--[--><!--[--><!----><header class="site-header svelte-12qhfyh"><a class="home-link svelte-12qhfyh" href="/">aaron</a> <button class="theme-toggle svelte-12qhfyh" type="button" aria-label="Toggle theme">Dark</button></header> <!----><main class="svelte-gygcht"><article class="page svelte-gygcht"><p class="eyebrow svelte-gygcht">project</p> <h1 class="svelte-gygcht">Rado Graph</h1> <div class="meta-row svelte-gygcht"><span class="status active svelte-gygcht">active</span> <span class="stack svelte-gygcht">WebGL • TypeScript • SvelteKit</span></div> <p class="lede svelte-gygcht">I got sucked down a Youtube rabbit hole about Rado graphs by Matt Parker and wanted a little project to play with typescript on my personal page.</p> <div class="body svelte-gygcht"><!--[--><p class="svelte-gygcht">An infinite-looking graph built from a deterministic pair-hash. Zoom out to melt your PC.</p><p class="svelte-gygcht">Im still trying to find an efficient way to render and generate this pseudo Rado graph. While keeping the whole generated graph deterministic.</p><!--]--></div> <!--[--><div class="embed svelte-gygcht"><!--[!--><div class="frame svelte-1s7z2zx"><div class="label svelte-1s7z2zx">Rado graph tiles (WebGL)</div> <div class="controls svelte-1s7z2zx"><label class="svelte-1s7z2zx">Tile nodes <input type="number" value="10" readonly class="svelte-1s7z2zx"/></label> <label class="svelte-1s7z2zx">Tile neighbors <input type="number" min="0" max="64" value="32" class="svelte-1s7z2zx"/></label> <label class="svelte-1s7z2zx">Highlight hops <input type="number" min="0" max="10" value="1" class="svelte-1s7z2zx"/></label> <label class="svelte-1s7z2zx">Node size <input type="number" min="1" max="40" value="15" class="svelte-1s7z2zx"/></label> <label class="svelte-1s7z2zx">Edge thick <input type="number" min="1" max="40" value="2" class="svelte-1s7z2zx"/></label></div> <canvas class="canvas svelte-1s7z2zx" aria-label="Rado graph WebGL canvas"></canvas></div><!--]--><!----></div><!--]--></article></main><!----><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
+  </head>
+  <body data-sveltekit-preload-data="hover">
+    <div style="display: contents"><!--[--><!--[--><!----><header class="site-header svelte-12qhfyh"><a class="home-link svelte-12qhfyh" href="/">aaron</a> <button class="theme-toggle svelte-12qhfyh" type="button" aria-label="Toggle theme">Dark</button></header> <!----><main class="svelte-gygcht"><article class="page svelte-gygcht"><p class="eyebrow svelte-gygcht">project</p> <h1 class="svelte-gygcht">Rado Graph</h1> <div class="meta-row svelte-gygcht"><span class="status active svelte-gygcht">active</span> <span class="stack svelte-gygcht">WebGL • TypeScript • SvelteKit</span></div> <p class="lede svelte-gygcht">I got sucked down a Youtube rabbit hole about Rado graphs by Matt Parker and wanted a little project to play with typescript on my personal page.</p> <div class="body svelte-gygcht"><!--[--><p class="svelte-gygcht">An infinite-looking graph built from a deterministic pair-hash. Zoom out to melt your PC.</p><p class="svelte-gygcht">Im still trying to find an efficient way to render and generate this pseudo Rado graph. While keeping the whole generated graph deterministic.</p><!--]--></div> <!--[--><div class="embed svelte-gygcht"><!--[!--><div class="frame svelte-1s7z2zx"><div class="label svelte-1s7z2zx">Rado graph tiles (WebGL)</div> <div class="controls svelte-1s7z2zx"><label class="svelte-1s7z2zx">Tile nodes <input type="number" value="10" readonly class="svelte-1s7z2zx"/></label> <label class="svelte-1s7z2zx">Tile neighbors <input type="number" min="0" max="64" value="32" class="svelte-1s7z2zx"/></label> <label class="svelte-1s7z2zx">Highlight hops <input type="number" min="0" max="10" value="1" class="svelte-1s7z2zx"/></label> <label class="svelte-1s7z2zx">Node size <input type="number" min="1" max="40" value="15" class="svelte-1s7z2zx"/></label> <label class="svelte-1s7z2zx">Edge thick <input type="number" min="1" max="40" value="2" class="svelte-1s7z2zx"/></label></div> <canvas class="canvas svelte-1s7z2zx" aria-label="Rado graph WebGL canvas"></canvas></div><!--]--><!----></div><!--]--></article></main><!----><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
 			
 			<script>
 				{
-					__sveltekit_bmzwm3 = {
+					__sveltekit_pexz31 = {
 						base: new URL("..", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("../_app/immutable/entry/start.CpAQfvsx.js"),
-						import("../_app/immutable/entry/app.rVradNCB.js")
+						import("../_app/immutable/entry/start.BLyUI5RG.js"),
+						import("../_app/immutable/entry/app.iXanV09w.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 9],
@@ -52,5 +67,5 @@
 				}
 			</script>
 		</div>
-	</body>
+  </body>
 </html>
