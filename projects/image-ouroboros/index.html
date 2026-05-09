@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Ouroboros</title>
+    <link rel="icon" type="image/png" href="./ouroboros.png" />
+    <script>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme =
+          stored === 'light' || stored === 'dark'
+            ? stored
+            : prefersDark
+              ? 'dark'
+              : 'light';
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <script type="module" crossorigin src="./assets/index-CuelDHnm.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-bDgYwsuR.css">
+  </head>
+  <body>
+    <div id="file-warning" class="file-warning hidden">
+      ⚠️ You opened this file directly from disk. Image Ouroboros needs to be served by a web server to load its image codecs.
+      <br>Run <code>npm run preview</code> or use any static file server (e.g. <code>npx serve dist</code>).
+    </div>
+    <div class="container">
+      <header>
+        <h1><img src="./ouroboros.png" alt="" class="logo-img"> Image Ouroboros</h1>
+        <p>Feed an image through a cycle of lossy formats and watch it degrade.</p>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme">Toggle theme</button>
+      </header>
+
+      <section class="upload-section">
+        <div id="drop-zone" class="drop-zone">
+          <span>Drop an image here or click to upload</span>
+          <input type="file" id="file-input" accept="image/*" hidden />
+        </div>
+      </section>
+
+      <section class="config-section">
+        <h2>Format Chain</h2>
+        <div id="format-list">
+          <div class="available-formats" id="available-formats"></div>
+          <div class="chain-label">Conversion order:</div>
+          <div class="format-chain" id="format-chain"></div>
+        </div>
+
+        <div class="sliders-grid">
+          <div class="slider-group">
+            <label for="cycle-slider">Cycles</label>
+            <input type="range" id="cycle-slider" min="100" max="5000" step="100" value="3000" />
+            <span id="cycle-value">3000</span>
+          </div>
+
+          <div class="slider-group">
+            <label for="max-dim-slider">Max Dimension</label>
+            <input type="range" id="max-dim-slider" min="256" max="2048" step="64" value="1024" />
+            <span id="max-dim-value">1024px</span>
+          </div>
+
+          <div class="slider-group">
+            <label for="fps-slider">FPS</label>
+            <input type="range" id="fps-slider" min="5" max="30" step="1" value="10" />
+            <span id="fps-value">10</span>
+          </div>
+
+          <div class="slider-group">
+            <label for="duration-slider">Duration</label>
+            <input type="range" id="duration-slider" min="3" max="20" step="1" value="10" />
+            <span id="duration-value">10s</span>
+          </div>
+        </div>
+
+        <div class="calculation-summary" id="calculation-summary"></div>
+
+        <button id="start-btn" class="start-btn" disabled>Start Processing</button>
+      </section>
+
+      <section id="progress-area" class="progress-area hidden">
+        <div class="progress-bar-track">
+          <div id="progress-bar" class="progress-bar-fill"></div>
+        </div>
+        <div id="progress-text" class="progress-text">Initializing...</div>
+        <canvas id="preview-canvas" class="preview-canvas"></canvas>
+      </section>
+
+      <section id="results-area" class="results-area hidden">
+        <h2>Results</h2>
+        <div class="download-buttons">
+          <button id="download-gif" class="download-btn">Download Animation (GIF)</button>
+          <button id="download-final" class="download-btn">Download Final Image (PNG)</button>
+        </div>
+      </section>
+    </div>
+
+  </body>
+</html>

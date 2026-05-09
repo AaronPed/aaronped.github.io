@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test</title></head>
+<body>
+<pre id="log"></pre>
+<pre id="result"></pre>
+<script>
+async function test() {
+  const log = document.getElementById('log');
+  const result = document.getElementById('result');
+  function out(msg) { log.textContent += msg + '\n'; }
+  try {
+    out('Creating image...');
+    const c = document.createElement('canvas');
+    c.width = 32; c.height = 32;
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = 'red'; ctx.fillRect(0, 0, 32, 32);
+    const bitmap = await createImageBitmap(c);
+    out('Bitmap ok');
+
+    out('Starting worker...');
+    const worker = new Worker('/src/worker.ts', { type: 'module' });
+    worker.onmessage = (e) => {
+      const msg = e.data;
+      if (msg.type === 'progress') out('Progress: ' + msg.cycle + '/' + msg.total);
+      else if (msg.type === 'complete') result.textContent = 'SUCCESS gif=' + msg.gifBytes.length + ' final=' + msg.finalImageBytes.length;
+      else if (msg.type === 'error') result.textContent = 'ERROR ' + msg.message;
+    };
+    worker.onerror = (err) => { result.textContent = 'WORKER_ERR ' + err.message; };
+
+    out('Sending...');
+    worker.postMessage({
+      type: 'start',
+      imageBitmap: bitmap,
+      config: {
+        formats: [{ type: 'jpeg', label: 'JPEG', jpegQuality: 50 }],
+        cycles: 3, maxDimension: 32, targetDurationSec: 1, targetFps: 2
+      }
+    }, [bitmap]);
+    out('Waiting...');
+  } catch (err) {
+    result.textContent = 'EXCEPTION ' + err.message;
+  }
+}
+test();
+</script>
+</body>
+</html>
